@@ -31,7 +31,7 @@ class SerialGenerator:
         return f"SerialGenerator(start={self.start}, next={self.next})"
 
     def generate(self):
-        """Generates next number in sequenc."""
+        """Generates next number in sequence."""
 
         self.next += 1
         return self.next - 1

@@ -9,8 +9,10 @@ class WordFinder:
     235886 words read
 
     >>> wf.random() in wf.words
+    True
 
     >>> wf.random() in wf.words
+    True
     
     """
 
@@ -39,5 +41,12 @@ class WordFinder:
 class SpecialWordFinder(WordFinder):
     """A subclass of WordFinder; that has improved functionality to avoid returning comments or blank spaces"""
 
-    def __init__(self, path):
-        super().__init__(path)
+    def __repr__(self):
+        """Shows representation."""
+
+        return f"SpecialWordFinder(path={self.file})"
+
+    def listify(self, file):
+        """Improved listify method. Creates a list of just words, avoiding comments or blank spaces"""
+
+        return [word.strip() for word in file if word.strip() and not word.startswith('#')]
